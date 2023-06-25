@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Palindrom</title>
+</head>
+<body>
+	<script type="text/javascript">
+		n=Number.parseInt(prompt("enter number"));
+		a=n
+		rev=0
+		while(n!=0){
+			rem=n%10;
+			rev=((rev*10)+rem);
+			n=Number.parseInt(n/10);
+		}
+		console.log(rev)
+		if(rev==a){
+			document.write("number is palindrom")
+		}
+		else{
+			document.write("number is not palindrom")
+		}
+	</script>
+</body>
+</html>

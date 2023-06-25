@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Amstrong</title>
+</head>
+<body>
+	<script type="text/javascript">
+		n = Number.parseInt(prompt("enter number"))
+		a=n;
+		let x,sum=0
+		while(n>0){
+			x=n%10
+			n=Number.parseInt(n/10);
+			sum=sum+ x*x*x;
+		}
+		console.log(sum)
+		if(a==sum){
+			document.write("amstrong number")
+		}
+		else{
+			document.write("not amstrong")
+		}
+	</script>
+</body>
+</html>

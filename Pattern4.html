@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>pattern-4</title>
+</head>
+<body>
+	<script type="text/javascript">
+		n = Number.parseInt(prompt("enter number :  "))
+		for(i=n;i>0;i-=2){
+			for(j=1;j<=(n-i)+1;j++){
+				document.write("&nbsp;")
+				console.log(j)
+			}
+			for(k=1;k<=i;k++){
+				document.write("*")
+			}
+			document.write("</br>")
+		}
+			
+		for(i=1;i<=n;i+=2){
+			if(i==1){
+				continue;
+			}
+			for(j=1;j<=(n-i)+1;j++){
+				document.write("&nbsp;")
+				console.log(j)
+			}
+			for(k=1;k<=i;k++){
+				document.write("*")
+			}
+			document.write("</br>")
+		}
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>calculator</title>
+</head>
+<body>
+	<script type="text/javascript">
+		n = (prompt("enter number 1 for addition , number 2 for substraction , number 3 for multiplication and 4 for division"))
+		a = Number.parseInt(prompt("enter a"))
+		b = Number.parseInt(prompt("enter b"))
+
+		if(n==1){
+			ans = a+b;
+			document.write(ans)
+		}
+		else if(n==2){
+			ans = a-b;
+			document.write(ans);
+		}
+		else if(n==3){
+			ans = a*b;
+			document.write(ans);
+		}
+		else if(n==4){
+			ans = a/b;
+			document.write(ans);
+		}
+		else{
+			document.write("enter valide number");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Prime in range</title>
+</head>
+<body>
+	<script type="text/javascript">
+		x=Number.parseInt(prompt("enter initial value"))
+		y=Number.parseInt(prompt("enter last value"))
+
+		for(i=x;i<=y;i++){
+			for(j=2;j<=i;j++){
+				if(i%j==0){
+					break;
+				}
+				if(i==j){
+					document.write(j);
+				}
+			}
+		}
+	</script>
+</body>
+</html>
