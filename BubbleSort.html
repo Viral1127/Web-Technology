@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bubble Sort</title>
+</head>
+<body>
+	<script type="text/javascript">
+		number = prompt("enter array elements")
+		arr = number.split(',')
+		console.log(arr)
+		let temp
+		for(i=0;i<arr.length;i++){
+			for(j=0;j<arr.length-1-i;j++){
+				if(arr[j] > arr[j+1]){
+					temp = arr[j]
+					arr[j] = arr[j+1]
+					arr[j+1] = temp
+				}
+			}
+		}
+			document.write(arr)
+	</script>
+</body>
+</html>
