@@ -7,16 +7,17 @@
 </head>
 <body>
 	<script type="text/javascript">
-		n = Number.parseInt(prompt("enter number"))
+		n = Number.parseInt(prompt("enter three degit number"))
 		a=n;
-		let x,sum=0
-		while(n>0){
+		let x,sum=0,cube;
+		while(n!=0){
 			x=n%10
+			cube = x*x*x;
+			sum=sum+cube;
 			n=Number.parseInt(n/10);
-			sum=sum+ x*x*x;
 		}
 		console.log(sum)
-		if(a==sum){
+		if(sum==a){
 			document.write("amstrong number")
 		}
 		else{

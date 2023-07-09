@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Snake game</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		.wrapper{
+			width:150vmin;
+			height:80vmin;
+			background:#1a3365;
+			border-radius:20px;
+			overflow:hidden;
+		}
+		body{
+			display: flex;
+			align-items:center;
+			justify-content:center;
+			min-height:90vh;
+			background:#2a52a2;
+		}
+		.game-details{
+			color:white;
+			font-size:20px;
+			padding:20px;
+			display:flex;
+			justify-content:space-between;
+		}
+		.play-board{
+			width:100%;
+			height:100%;
+			background:#101f3d;
+			border-bottom-left-radius:20px;
+			border-bottom-right-radius:20px;
+		}
+		.game{
+			font-size:25px;
+		}
+		.play-board #food{
+			position:absolute;
+			width:15px;
+			height:15px;
+			background:red;
+			top:500px;
+			left:500px;
+			
+		}
+		.play-board #snake{
+			position:absolute;
+			width:18px;
+			height:18px;
+			background:blue;
+			top:200px;
+			left:300px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="game-details">
+			<span class="score">Score : 10</span>
+			<span class="game">Snack Game</span>
+			<span class="high-score">HighScore : 20</span>
+		</div>
+		<div class="play-board">
+			<div id="food"></div>
+			<div id="snake"></div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		function position(){
+		appleLeft = Math.ceil(Math.random()*1000)+200;
+		appleTop = Math.ceil(Math.random()*400)+200 ;
+		document.getElementById('food').style.top= appleTop + "px" 
+		document.getElementById('food').style.left= appleLeft + "px"
+		}
+		
+		position()
+
+		snake = document.getElementById("snake");
+		apple = document.getElementById("food");
+		snakeLeft = 300;
+		snakeTop = 200;
+		let clr=0
+		applewidth = 15;
+		appleheight = 15;
+		function moveLeft(){
+			snakeLeft--;
+			str = snakeLeft + "px";
+			snake.style.left = str;
+			if(check()){
+				position();
+			}
+		}
+
+		function startLeft(){
+			clearInterval(clr)
+			clr = setInterval(moveLeft,5)	
+		}
+
+		function moveRight(){
+			snakeLeft++;
+			snake.style.left = snakeLeft + "px"
+			if(check()){
+				position();
+			}
+		}
+
+		function startRight(){
+			clearInterval(clr)
+			clr = setInterval(moveRight,5)
+		}
+
+		function moveBottom(){
+			snakeTop++;
+			snake.style.top = snakeTop + "px"
+			if(check()){
+				position();
+			}
+		}
+
+		function startBottom(){
+			clearInterval(clr)
+			clr = setInterval(moveBottom,5)
+		}
+
+		function moveTop(){
+			snakeTop--;
+			snake.style.top = snakeTop + "px"
+			if(check()){
+				position();
+			}
+		}
+
+		function startTop(){
+			clearInterval(clr)
+			clr = setInterval(moveTop,5)
+		}
+
+		window.addEventListener('keydown',(e) =>{
+  		if (e.key === "ArrowUp"){
+  		console.log("ArrowUp")
+    	startTop();
+    	
+ 		}
+ 		else if(e.key === "ArrowDown"){
+ 			console.log("ArrowDown")
+ 			startBottom();
+ 			check()
+ 		}
+ 		else if(e.key === "ArrowLeft"){
+ 			console.log("ArrowLeft")
+ 			startLeft();
+ 			check()
+ 		}
+ 		else if(e.key === "ArrowRight"){
+ 			console.log("ArrowRight")
+ 			startRight();
+ 			check()
+ 		}
+	});
+		function check(){
+		if(appleLeft<snakeLeft && snakeLeft<appleLeft+15 && appleTop<snakeTop && snakeTop<appleTop+15){
+			return true
+		}
+		else if(appleLeft<snakeLeft+18 && snakeLeft+18<appleLeft+15 &&appleTop<snaketop && snakeTop<appleTop+15){
+
+			return true
+		}
+		else if(appleLeft<snakeLeft && snakeLeft<appleLeft+15 && appleTop<snakeTop+18 && snakeTop+18<appleTop+15){
+			return true
+		}
+		else if(appleLeft<snakeLeft+18 && snakeLeft+18<appleLeft+15 && appleTop<snakeTop && snakeTop<appleTop+15){
+			return true
+		}
+		return false;
+	}
+
+
+	</script>
+</body>
+</html>
