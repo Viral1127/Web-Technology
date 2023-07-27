@@ -3,65 +3,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="Style.css">
 	<title>Snake game</title>
 	<style type="text/css">
-		*{
-			box-sizing: border-box;
-		}
-		.wrapper{
-			width:150vmin;
-			height:80vmin;
-			background:#1a3365;
-			border-radius:20px;
-			overflow:hidden;
-		}
-		body{
-			display: flex;
-			align-items:center;
-			justify-content:center;
-			min-height:90vh;
-			background:#2a52a2;
-		}
-		.game-details{
-			color:white;
-			font-size:20px;
-			padding:20px;
-			display:flex;
-			justify-content:space-between;
-		}
-		.play-board{
-			width:100%;
-			height:100%;
-			background:#101f3d;
-			border-bottom-left-radius:20px;
-			border-bottom-right-radius:20px;
-		}
-		.game{
-			font-size:25px;
-		}
-		.play-board #food{
-			position:absolute;
-			width:15px;
-			height:15px;
-			background:red;
-			top:500px;
-			left:500px;
-			
-		}
-		.play-board #snake{
-			position:absolute;
-			width:18px;
-			height:18px;
-			background:blue;
-			top:200px;
-			left:300px;
-		}
+		
 	</style>
 </head>
 <body>
 	<div class="wrapper">
 		<div class="game-details">
-			<span class="score">Score : 10</span>
+			<span id="score">Score : 0</span>
 			<span class="game">Snack Game</span>
 			<span class="high-score">HighScore : 20</span>
 		</div>
@@ -79,22 +30,28 @@
 		document.getElementById('food').style.top= appleTop + "px" 
 		document.getElementById('food').style.left= appleLeft + "px"
 		}
-		
 		position()
-
+		s = document.getElementById("score")
+		score = 0;
 		snake = document.getElementById("snake");
 		apple = document.getElementById("food");
 		snakeLeft = 300;
-		snakeTop = 200;
+		snakeTop = 300;
 		let clr=0
-		applewidth = 15;
-		appleheight = 15;
+		applewidth = 30;
+		appleheight = 30;
+		snakeWidth = 10;
 		function moveLeft(){
 			snakeLeft--;
 			str = snakeLeft + "px";
 			snake.style.left = str;
 			if(check()){
 				position();
+				score++
+				s.innerText = "Your Score : " + score
+			}
+			if(snakeLeft<8){
+				alert("Game over")
 			}
 		}
 
@@ -108,6 +65,11 @@
 			snake.style.left = snakeLeft + "px"
 			if(check()){
 				position();
+				score++
+				s.innerText = "Your Score : " + score
+			}
+			if(snakeLeft>1510){
+				alert("Game over")
 			}
 		}
 
@@ -121,6 +83,11 @@
 			snake.style.top = snakeTop + "px"
 			if(check()){
 				position();
+				score++
+				s.innerText = "Your Score : " + score
+			}
+			if(snakeTop>662){
+				alert("Game over")
 			}
 		}
 
@@ -134,6 +101,11 @@
 			snake.style.top = snakeTop + "px"
 			if(check()){
 				position();
+				score++
+				s.innerText = "Your Score : " + score
+			}
+			if(snakeTop<116){
+				alert("Game over")
 			}
 		}
 
@@ -144,41 +116,39 @@
 
 		window.addEventListener('keydown',(e) =>{
   		if (e.key === "ArrowUp"){
-  		console.log("ArrowUp")
-    	startTop();
+  			//console.log("ArrowUp")
+    		startTop();
     	
  		}
  		else if(e.key === "ArrowDown"){
- 			console.log("ArrowDown")
+ 			//console.log("ArrowDown")
  			startBottom();
  			check()
  		}
  		else if(e.key === "ArrowLeft"){
- 			console.log("ArrowLeft")
+ 			//console.log("ArrowLeft")
  			startLeft();
  			check()
  		}
  		else if(e.key === "ArrowRight"){
- 			console.log("ArrowRight")
+ 			//console.log("ArrowRight")
  			startRight();
  			check()
  		}
 	});
 		function check(){
-		if(appleLeft<snakeLeft && snakeLeft<appleLeft+15 && appleTop<snakeTop && snakeTop<appleTop+15){
-			return true
-		}
-		else if(appleLeft<snakeLeft+18 && snakeLeft+18<appleLeft+15 &&appleTop<snaketop && snakeTop<appleTop+15){
+		//console.log(appleLeft, appleTop, snakeLeft, snakeTop)
+            if(appleLeft < snakeLeft && snakeLeft < (appleLeft + 30) && appleTop < snakeTop && snakeTop < (appleTop + 30)){
+                return true;
+            }else if(appleLeft < (snakeLeft + 30) && (snakeLeft + 30) < (appleLeft + 30) && appleTop < snakeTop && snakeTop < (appleTop + 30)){
+                return true;
+            }else if(appleLeft < snakeLeft && snakeLeft < (appleLeft + 30) && appleTop < (snakeTop + 30) && (snakeTop + 30) < (appleTop + 30)){
+                return true;
+            }else if(appleLeft < (snakeLeft + 30) && (snakeLeft + 30) < (appleLeft + 30) && appleTop < (snakeTop + 30) && (snakeTop + 30) < (appleTop + 30)){
+                return true;
+            }
+            return false
 
-			return true
-		}
-		else if(appleLeft<snakeLeft && snakeLeft<appleLeft+15 && appleTop<snakeTop+18 && snakeTop+18<appleTop+15){
-			return true
-		}
-		else if(appleLeft<snakeLeft+18 && snakeLeft+18<appleLeft+15 && appleTop<snakeTop && snakeTop<appleTop+15){
-			return true
-		}
-		return false;
 	}
 
 

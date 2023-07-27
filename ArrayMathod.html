@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Array Methods</title>
+</head>
+<body>
+<script>
+	rollNo = [2,9,6,4,15,5,7,8]
+	document.write("before using array Methods" + rollNo + '<br>')
+	//Push Method(add element at end)
+	rollNo.push(3);
+	rollNo.push(9);
+	document.write("after push : " + rollNo + '<br>');
+
+	//Pop Method(remove element from end)
+	temp = rollNo.pop();
+	document.write("after Pop : " + rollNo + '<br>' + 'poped element : ' +temp+ '<br>');
+
+	//UnShift Method(Add element at starting)
+	rollNo.unshift(50);
+	document.write("after unshift : " + rollNo + '<br>');
+
+	//unshift Method(Remove element from first)
+	x = rollNo.shift()
+	document.write("after shift : " + rollNo + '<br>' + 'shifted element : ' +x+ '<br>');
+
+	//Sort Mwthod(It sort array in alphabatic form)
+	rollNo.sort();
+	document.write("after sort : " + rollNo + '<br>');
+
+	//Reverse Method(It reverse the array)
+	rollNo.reverse();
+	document.write("after reverse : " + rollNo + '<br>');
+
+	//sort using function(used because we can't sort greater than 9 number using only sort method)
+	rollNo.sort((a,b)=>{
+		return a-b
+	})
+	document.write("afte sort function : " + rollNo + '<br>');
+
+	//slice Method
+	var newarray = rollNo.slice(3,6)
+	document.write("after slice : " + newarray + '<br>');
+
+	//splice Method
+	var a = rollNo.splice(2,5)
+	document.write("after splice : " + a + '<br>');
+
+
+</script>
+</body>
+</html>

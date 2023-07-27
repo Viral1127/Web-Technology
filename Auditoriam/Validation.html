@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Validation of email</title>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css">
+	<style type="text/css">
+		#Check{
+			position:absolute;
+			left:250px;
+			top:50px;
+			transition-duration:0.5s;
+		}
+	</style>
+</head>
+<body>
+	Name :  <input type="text" name="Name" id="Name"><br><br>
+	Email :  <input type="text" name="email" id="Email">
+	<input type="button" value="check" onmouseenter="checkName()" id="Check">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script type="text/javascript">
+
+		b = document.getElementById("Check")
+		ButtonLeft = 250;
+		ButtonTop = 50;
+		let count = 1
+
+
+		function checkName(){
+			a = document.getElementById("Name").value;
+			console.log(a)
+			var pattern = '^22010101[0-9]{3}$';
+			var regex = new RegExp(pattern);
+			if(regex.test(a))
+			{
+				alert("valid")
+			}
+			else{
+					alert("invalid")
+				}
+				// position()
+				// switch(count){
+				// case 1 : swal.fire("krupya sahi dale")
+				// 	break;
+				// case 2 : swal.fire("ayy sachu nakh ne")
+				// 	break;
+				// case 3 : swal.fire("tne kv ayyy sachu nakh")
+				// 	break;
+				// case 4 : swal.fire("hve tare sachu nakhvanu thay chhe k naiiii")
+				// 	break;
+				// default : swal.fire("tata...hu jav")
+				// }
+				// count++;
+		}
+
+		// window.addEventListener('keypress',(e)=>{
+		// 	console.log(e)
+			
+		// 	if(e.key=="Enter"){
+		// 		checkName()
+		// 	}
+		// }
+		// )
+
+		// function position(){
+		// ButtonLeft = Math.ceil(Math.random()*1000)+200;
+		// BottonTop = Math.ceil(Math.random()*400)+200 ;
+		// document.getElementById('Check').style.top= ButtonTop + "px" 
+		// document.getElementById('Check').style.left= ButtonLeft + "px"
+
+		// }
+	</script>
+</body>
+</html>

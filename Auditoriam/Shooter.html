@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Shooter game</title>
+	<style type="text/css">
+		#image{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			left: 500px;
+			top: 300px;
+			transition-duration: 0.2s;
+		}
+
+		#score{
+			text-align: center;
+		}
+		body{
+   			cursor:crosshair;
+   			text-align: center;
+		}
+		#button{
+			background:#fff;
+			border:2px solid black;
+			padding:10px 35px;
+			font-size: 1.1rem;
+			margin-top:2em;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<input type="button" value="Start" id="button">
+	</div>
+	<!--<h2 id="score">Score 0</h2>-->
+	<!--<input type="button" value="start" onclick="start()">-->
+	<img src="C:\Users\viral chauhan\Downloads\pngwing.com.png" id="image" onclick="position()">
+	<script type="text/javascript">	
+		startbutton = document.getElementById("button")
+	document.addEventListener("keypress", function(event) {
+  	if (event.key === "Enter") {
+  		console.log("enter")
+    start();
+  }
+});
+		function position(){
+		document.getElementById('image').style.left= Math.ceil(Math.random()*1450) + "px"
+		document.getElementById('image').style.top= Math.ceil(Math.random()*500)+100 + "px"
+	}
+	function start(){
+	setInterval(position , 1000);
+}
+	function score(){
+		score++;
+	}
+	</script>
+</body>
+</html>
